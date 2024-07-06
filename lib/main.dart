@@ -1,3 +1,7 @@
+import 'package:diary/presentation/pages/calendar/calendar_screen.dart';
+import 'package:diary/presentation/pages/home/home_screen.dart';
+import 'package:diary/presentation/pages/mood_diary/mood_diary_screen.dart';
+import 'package:diary/presentation/pages/stats/stats_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,12 +13,14 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      routes: {
+        '/diary': (context) => const MoodDiaryScreen(),
+        '/stats': (context) =>  const StatsScreen(),
+        '/calendar': (context) =>  const CalendarScreen(),
+      },
+      home: const HomeScreen(),
     );
   }
 }
